@@ -26,7 +26,7 @@ public class Ejemplo2 {
         List<Mascota> listarMascotas=null;
         
         try {
-            listarMascotas = mascotadao.listar();
+            listarMascotas = mascotadao.listarMascota();
         } catch (Exception ex) {
             Logger.getLogger(Ejemplo2.class.getName()).log(Level.SEVERE, null, ex);
         }

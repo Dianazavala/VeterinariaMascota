@@ -7,6 +7,7 @@ package managerdbean;
 
 import Dao.MascotaDao;
 import entidades.Mascota;
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -33,10 +34,35 @@ public class MascotaBean {
         this.mascota = mascota;
     }
     
-    public void guardar(){
+    public String guardar(){
         MascotaDao dao = new MascotaDao();
         dao.guardarMascota(mascota);
+        return "/RegistroMascota";
     }
     
+    public ArrayList<Mascota> listar(){
+        ArrayList<Mascota>milista = new ArrayList<>();
+        MascotaDao dao = new MascotaDao();
+        milista = dao.listarMascota();
+        return milista;
+        
+    }
+
+    public String actualizarMascota(){
+        MascotaDao dao = new MascotaDao();
+        dao.actualizar(mascota);
+        return "/RegistroMascota";
+    }
     
+    public String limpiar(){
+        mascota = new Mascota();
+        limpiar();
+        return "/RegistroMascota";
+    }
+    
+    public String eliminar(Mascota mascota){
+        MascotaDao dao = new MascotaDao();
+        dao.eliminar(mascota);
+        return "/RegistroMascota";
+    }
 }

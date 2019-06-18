@@ -6,6 +6,7 @@
 package Interfaces;
 
 import entidades.Mascota;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 
@@ -16,7 +17,7 @@ import org.hibernate.Session;
 public interface IMascota {
    public abstract void guardarMascota(Mascota masccota);
     
-     public abstract List<Mascota> listar();
+     public abstract ArrayList<Mascota> listarMascota();
     
     public abstract void actualizar(Mascota mascota);
     
@@ -25,5 +26,7 @@ public interface IMascota {
     public abstract List<Mascota> listarWhereNombre(String filtro);
     
     public abstract int obtenerCantidadMascotas();
+    
+    public abstract void eliminar(Mascota mascota);
     
 }
